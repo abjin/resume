@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gijin Kim - Backend Developer & AI Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.7;
+        color: #1a1a1a;
+        background: #fff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+
+      nav a {
+        font-size: 14px;
+        color: #666;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: #1a1a1a;
+      }
+
+      .lang-switch {
+        font-size: 13px;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #666;
+        transition: all 0.2s;
+      }
+
+      .lang-switch:hover {
+        border-color: #1a1a1a;
+        color: #1a1a1a;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 120px 0 80px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        font-size: 13px;
+        color: #16a34a;
+        background: #f0fdf4;
+        padding: 6px 14px;
+        border-radius: 20px;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .hero-role {
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 32px;
+        font-weight: 400;
+      }
+
+      .hero-desc {
+        font-size: 17px;
+        color: #444;
+        max-width: 580px;
+        line-height: 1.8;
+      }
+
+      .hero-links {
+        margin-top: 40px;
+        display: flex;
+        gap: 16px;
+      }
+
+      .hero-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #666;
+        transition: color 0.2s;
+      }
+
+      .hero-links a:hover {
+        color: #1a1a1a;
+      }
+
+      /* Section */
+      section {
+        padding: 80px 0;
+        border-top: 1px solid #eee;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 48px;
+      }
+
+      /* About */
+      .about-content {
+        display: flex;
+        gap: 48px;
+        align-items: flex-start;
+      }
+
+      .profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 12px;
+        object-fit: cover;
+        object-position: center top;
+        flex-shrink: 0;
+      }
+
+      .about-text {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.9;
+      }
+
+      .stats {
+        display: flex;
+        gap: 48px;
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid #eee;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        color: #888;
+        margin-top: 4px;
+      }
+
+      /* Experience */
+      .exp-item {
+        margin-bottom: 56px;
+      }
+
+      .exp-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .exp-company {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+
+      .exp-role {
+        font-size: 15px;
+        color: #666;
+        margin-top: 4px;
+      }
+
+      .exp-period {
+        font-size: 14px;
+        color: #888;
+      }
+
+      .exp-desc {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 24px;
+      }
+
+      .exp-project {
+        margin-top: 24px;
+        padding-left: 20px;
+        border-left: 2px solid #eee;
+      }
+
+      .exp-project-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .exp-list {
+        list-style: none;
+      }
+
+      .exp-list li {
+        font-size: 14px;
+        color: #555;
+        padding: 6px 0;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .exp-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 5px;
+        height: 5px;
+        background: #ccc;
+        border-radius: 50%;
+      }
+
+      /* Education */
+      .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .edu-school {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+
+      .edu-major {
+        font-size: 15px;
+        color: #666;
+        margin-top: 4px;
+      }
+
+      .edu-info {
+        font-size: 14px;
+        color: #666;
+        margin-top: 12px;
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .project-card {
+        padding: 28px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .project-card:hover {
+        border-color: #ddd;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .project-title {
+        font-size: 17px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+      }
+
+      .project-desc {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+
+      .project-features {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+
+      .project-features li {
+        font-size: 13px;
+        color: #666;
+        padding: 4px 0;
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .project-features li::before {
+        content: '·';
+        position: absolute;
+        left: 0;
+        color: #999;
+        font-weight: bold;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .tech-tag {
+        font-size: 11px;
+        color: #666;
+        background: #f5f5f5;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: #666;
+        transition: color 0.2s;
+      }
+
+      .project-link:hover {
+        color: #1a1a1a;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 16px;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+
+      .skill-category h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 16px;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-item {
+        font-size: 13px;
+        color: #555;
+        background: #f8f8f8;
+        padding: 6px 14px;
+        border-radius: 6px;
+      }
+
+      /* Research */
+      .research-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .research-card {
+        padding: 28px;
+        background: #fafafa;
+        border-radius: 12px;
+      }
+
+      .research-card h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+      }
+
+      .research-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: flex;
+        gap: 48px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f5f5f5;
+        border-radius: 8px;
+        color: #666;
+        font-size: 16px;
+      }
+
+      .contact-label {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 2px;
+      }
+
+      .contact-value {
+        font-size: 14px;
+        color: #1a1a1a;
+        font-weight: 500;
+      }
+
+      .contact-value a {
+        transition: color 0.2s;
+      }
+
+      .contact-value a:hover {
+        color: #666;
+      }
+
+      /* Footer */
+      footer {
+        padding: 40px 0;
+        border-top: 1px solid #eee;
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 13px;
+        color: #999;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .hero {
+          padding: 80px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .about-content {
+          flex-direction: column;
+          gap: 32px;
+        }
+
+        .profile-img {
+          width: 120px;
+          height: 120px;
+        }
+
+        .stats {
+          flex-wrap: wrap;
+          gap: 32px;
+        }
+
+        .projects-grid,
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .contact-grid {
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        .exp-header {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+      /* Mobile nav toggle */
+      .mobile-nav {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Gijin Kim</div>
+          <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="index.html" class="lang-switch">KR</a>
+          </nav>
+          <a href="index.html" class="lang-switch mobile-nav">KR</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" style="border-top: none; padding-top: 80px">
+        <div class="container">
+          <div class="hero-badge">Open to Work</div>
+          <h1>Gijin Kim</h1>
+          <p class="hero-role">Backend Developer & AI Engineer</p>
+          <p class="hero-desc">
+            A passionate developer who enjoys simplifying complex problems and
+            solving them with IT technology. From handling large-scale traffic
+            to developing AI services, I focus on creating practical value
+            through various technical challenges.
+          </p>
+          <div class="hero-links">
+            <a href="mailto:abjin69@gmail.com">
+              <i class="fas fa-envelope"></i> abjin69@gmail.com
+            </a>
+            <a href="https://github.com/abjin" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://velog.io/@abjin" target="_blank">
+              <i class="fas fa-blog"></i> Velog
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About</h2>
+          <div class="about-content">
+            <img src="profile.jpg" alt="Gijin Kim" class="profile-img" />
+            <div>
+              <p class="about-text">
+                I'm Gijin Kim, a developer who finds fulfillment and happiness
+                in solving complex real-world problems with IT. I focus on
+                building software that delivers value to people, from handling
+                large-scale traffic to developing RAG-based intelligent
+                services. Recently, to expand my ability to solve more problems,
+                I have been studying natural language processing and pursuing
+                related research.
+              </p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value">2+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">400K+</div>
+              <div class="stat-label">DAU Handled</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">4.07</div>
+              <div class="stat-label">Total GPA (4.5)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="edu-item">
+            <div>
+              <div class="edu-school">Dankook University</div>
+              <div class="edu-major">B.S. in Mobile Systems Engineering</div>
+              <div class="edu-info">
+                Total GPA: 4.07 / 4.5 · Major GPA: 4.13 / 4.5 · Credits: 126/140 · Expected Graduation: Aug 2026
+              </div>
+              <div class="edu-info" style="margin-top: 8px">
+                Relevant Coursework: Data Structures, Database, Probability &
+                Statistics, Computer Architecture, System Programming, Pattern
+                Recognition, Computer Vision
+              </div>
+            </div>
+            <div class="exp-period">Mar 2020 ~ Current</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-company">Nudge Healthcare (Cashwalk)</div>
+                <div class="exp-role">Backend Part Leader & Developer</div>
+              </div>
+              <div class="exp-period">Apr 2022 – Apr 2024 · 2 yrs 1 mo</div>
+            </div>
+            <p class="exp-desc">
+              Responsible for technical leadership and team management including
+              scrum facilitation, code reviews, API design, and RDB/NoSQL
+              optimization across projects.
+            </p>
+
+            <div class="exp-project">
+              <div class="exp-project-title">
+                Real-time Large-Scale Chat Server (Cashwalk, Everyone's Challenge)
+              </div>
+              <ul class="exp-list">
+                <li>Designed and developed chat server architecture handling 400K DAU traffic</li>
+                <li>Verified message processing stability through Artillery-based load testing</li>
+                <li>Developed read receipts, 1-on-1/group/channel chat (5M+ simultaneous delivery)</li>
+                <li>Node.js, Nest.JS API design with Socket.io real-time communication</li>
+                <li>Implemented multi-tenant architecture for system scalability</li>
+                <li>MySQL, DynamoDB, Redis design and optimization for performance</li>
+              </ul>
+            </div>
+
+            <div class="exp-project">
+              <div class="exp-project-title">
+                Global Cashwalk Backend (EU/US/UK)
+              </div>
+              <ul class="exp-list">
+                <li>Designed and developed backend systems for North America and Europe</li>
+                <li>Built stable architecture considering network latency and data consistency</li>
+                <li>Maintained features in AWS cloud (EC2, RDS, S3, SQS, Lambda)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3 class="project-title">AI-Powered Slack Q&A Bot</h3>
+              <p class="project-desc">
+                RAG-based Slack bot providing accurate, evidence-based answers
+                for internal team knowledge (GitHub, Notion)
+              </p>
+              <ul class="project-features">
+                <li>Question classification and routing workflow using LangGraph</li>
+                <li>Vector search with Gemini Embedding Model and Pinecone</li>
+                <li>Periodic GitHub/Notion change detection and embedding updates</li>
+                <li>Multi-tenancy DB schema and logic design</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">NestJS</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">Gemini API</span>
+                <span class="tech-tag">Pinecone</span>
+              </div>
+              <a
+                href="https://github.com/12billion2025/slack-rag-bot"
+                target="_blank"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">RAG Pipeline Optimization</h3>
+              <p class="project-desc">
+                Quantitative analysis of TopK, Chunk Size, Overlap parameters'
+                impact on response quality and cost
+              </p>
+              <ul class="project-features">
+                <li>27 parameter combinations × 21 questions × 3 iterations</li>
+                <li>RAGAS framework for quality metrics measurement</li>
+                <li>Derived optimal point (TopK=3, Chunk=512, Overlap=15%)</li>
+                <li>Answer Correctness +17%, Token usage -57%</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">RAGAS</span>
+                <span class="tech-tag">Pinecone</span>
+              </div>
+              <a
+                href="https://github.com/abjin/rag-optimization-experiment"
+                target="_blank"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">AI/ML Study Blog</h3>
+              <p class="project-desc">
+                Structured blog covering Transformer, CNN, ViT, U-Net, and
+                Pattern Recognition fundamentals
+              </p>
+              <ul class="project-features">
+                <li>Transformer & Attention mechanism documentation</li>
+                <li>CNN series: LeNet, AlexNet, VGG, ResNet, MobileNet</li>
+                <li>Pattern Recognition: MLE, SVM, Gradient Descent</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">Transformer</span>
+                <span class="tech-tag">CNN</span>
+                <span class="tech-tag">ViT</span>
+                <span class="tech-tag">Pattern Recognition</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://velog.io/@abjin/series"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-blog"></i> Velog
+                </a>
+                <a
+                  href="https://github.com/abjin/ai-notes"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">Food Image Calorie Analysis</h3>
+              <p class="project-desc">
+                AI API server analyzing calories and nutritional information
+                from food photos using fine-tuned YOLO
+              </p>
+              <ul class="project-features">
+                <li>YOLOv11 fine-tuned with 90 food classes (mAP 0.85)</li>
+                <li>FastAPI real-time image processing pipeline</li>
+                <li>AWS cloud-based scalable server infrastructure</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">YOLO</span>
+              </div>
+              <a
+                href="https://github.com/6billion/hab-eat-ai-api-server"
+                target="_blank"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">AI Clothing Recycling Platform</h3>
+              <p class="project-desc">
+                Service automating clothing recycling sorting with YOLO models
+              </p>
+              <ul class="project-features">
+                <li>15-category classification and defect detection API</li>
+                <li>TorchScript conversion for inference optimization</li>
+                <li>Docker Hub + AWS Elastic Beanstalk auto-deployment</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+              <a
+                href="https://github.com/abjin/reward-closet-ai-api-server"
+                target="_blank"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-title">Gym Attendance Motivation App</h3>
+              <p class="project-desc">
+                Fitness web/app with gym attendance and social features
+              </p>
+              <ul class="project-features">
+                <li>Gym image verification using OpenRouter AI</li>
+                <li>Real-time ranking and level system with Redis</li>
+                <li>User motivation through social features</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tech-tag">NestJS</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">OpenRouter</span>
+                <span class="tech-tag">React</span>
+              </div>
+              <a
+                href="https://github.com/abjin/gym-in-api-server"
+                target="_blank"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Programming</h3>
+              <div class="skill-list">
+                <span class="skill-item">TypeScript</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">Node.js</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>AI / ML</h3>
+              <div class="skill-list">
+                <span class="skill-item">LangChain</span>
+                <span class="skill-item">LangGraph</span>
+                <span class="skill-item">OpenAI API</span>
+                <span class="skill-item">Pinecone</span>
+                <span class="skill-item">PyTorch</span>
+                <span class="skill-item">YOLO</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Backend & DevOps</h3>
+              <div class="skill-list">
+                <span class="skill-item">NestJS</span>
+                <span class="skill-item">FastAPI</span>
+                <span class="skill-item">MySQL</span>
+                <span class="skill-item">Redis</span>
+                <span class="skill-item">AWS</span>
+                <span class="skill-item">Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research -->
+      <section id="research">
+        <div class="container">
+          <h2 class="section-title">Research Interests</h2>
+          <div class="research-grid">
+            <div class="research-card">
+              <h3>RAG & Domain-Specific LLM</h3>
+              <p>
+                Based on hands-on experience building RAG-based bots, I am
+                interested in research that leverages external information
+                sources to enhance LLM reliability and reduce hallucinations.
+                Currently exploring efficient search, indexing, and generation
+                strategies for domain-specific data.
+              </p>
+            </div>
+            <div class="research-card">
+              <h3>LLM Serving & Inference Optimization</h3>
+              <p>
+                Recognizing bottlenecks and throughput limitations in LLM
+                inference as key challenges, I am exploring optimization
+                problems in inference pipelines and serving architectures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:abjin69@gmail.com">abjin69@gmail.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div>
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">
+                  <a href="https://github.com/abjin" target="_blank">@abjin</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-blog"></i>
+              </div>
+              <div>
+                <div class="contact-label">Blog</div>
+                <div class="contact-value">
+                  <a href="https://velog.io/@abjin" target="_blank">Velog</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Gijin Kim. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
