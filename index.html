@@ -334,7 +334,7 @@
         padding: 48px;
         box-shadow: var(--shadow-xl);
         border: 1px solid #e2e8f0;
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
         position: relative;
         overflow: hidden;
@@ -350,11 +350,57 @@
         background: var(--gradient-primary);
       }
 
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        flex-wrap: wrap;
+      }
+
+      .about-image {
+        flex-shrink: 0;
+      }
+
+      .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: var(--shadow-lg);
+        border: 4px solid white;
+        transition: all 0.3s ease;
+      }
+
+      .profile-image:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-xl);
+      }
+
       .about-text {
+        flex: 1;
+        min-width: 300px;
         font-size: 18px;
         line-height: 1.8;
         color: var(--text-secondary);
-        text-align: center;
+        text-align: left;
+      }
+
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 32px;
+        }
+
+        .about-text {
+          text-align: center;
+          min-width: auto;
+        }
+
+        .profile-image {
+          width: 150px;
+          height: 150px;
+        }
       }
 
       /* Stats section */
@@ -953,13 +999,22 @@
         </div>
 
         <div class="about-card fade-in">
-          <div class="about-text">
-            복잡한 세상의 문제를 단순화하고 IT 기술로 문제를 푸는 것을 즐기는
-            개발자 김기진입니다. 대규모 트래픽을 안정적으로 처리하는 백엔드
-            시스템 설계부터 RAG 기반의 지능형 서비스 개발까지, 다양한 기술적
-            도전을 통해 실질적인 문제 해결에 집중해왔습니다. 최근에는 더 다양한
-            문제를 해결하기 위해 자연어 처리 기술에 관심을 가지고 공부하고
-            있습니다.
+          <div class="about-content">
+            <div class="about-image">
+              <img
+                src="profile.jpg"
+                alt="김기진 프로필 사진"
+                class="profile-image"
+              />
+            </div>
+            <div class="about-text">
+              복잡한 세상의 문제를 단순화하고 IT 기술로 문제를 푸는 것을 즐기는
+              개발자 김기진입니다. 대규모 트래픽을 안정적으로 처리하는 백엔드
+              시스템 설계부터 RAG 기반의 지능형 서비스 개발까지, 다양한 기술적
+              도전을 통해 실질적인 문제 해결에 집중해왔습니다. 최근에는 더
+              다양한 문제를 해결하기 위해 자연어 처리 기술에 관심을 가지고
+              공부하고 있습니다.
+            </div>
           </div>
         </div>
 
