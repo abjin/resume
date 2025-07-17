@@ -5,14 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김기진 (Gijin Kim) - Backend Developer & AI Engineer</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --primary-color: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary-color: #8b5cf6;
+        --accent-color: #06b6d4;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-tertiary: #f1f5f9;
+        --glass-bg: rgba(255, 255, 255, 0.25);
+        --glass-border: rgba(255, 255, 255, 0.18);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -22,399 +47,718 @@
       body {
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: var(--text-primary);
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        background-attachment: fixed;
         min-height: 100vh;
+        overflow-x: hidden;
       }
 
+      /* Glassmorphism utilities */
+      .glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .glass-dark {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Container */
       .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 24px;
       }
 
-      /* Header */
-      header {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+      /* Navigation */
+      .navbar {
         position: fixed;
         top: 0;
-        width: 100%;
+        left: 0;
+        right: 0;
         z-index: 1000;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        padding: 16px 0;
+        transition: all 0.3s ease;
       }
 
-      nav {
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .nav-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 0;
       }
 
       .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #667eea;
+        font-size: 24px;
+        font-weight: 800;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
       .nav-links {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 32px;
       }
 
       .nav-links a {
+        color: var(--text-primary);
         text-decoration: none;
-        color: #333;
         font-weight: 500;
-        transition: color 0.3s ease;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        position: relative;
+        transition: all 0.3s ease;
       }
 
-      .nav-links a:hover {
-        color: #667eea;
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
       }
 
       /* Hero Section */
       .hero {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 120px 0 80px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="80" fill="url(%23a)"/></svg>')
+          no-repeat center center;
+        background-size: cover;
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 50px;
+        padding: 8px 20px;
+        margin-bottom: 32px;
+        font-size: 14px;
+        font-weight: 500;
+        color: white;
         animation: fadeInUp 0.8s ease;
       }
 
-      .hero .subtitle {
-        font-size: 1.5rem;
-        font-weight: 300;
-        margin-bottom: 2rem;
+      .hero-badge::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        color: white;
         animation: fadeInUp 0.8s ease 0.2s both;
       }
 
-      .contact-info {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
+      .hero h1 .highlight {
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 40px;
         animation: fadeInUp 0.8s ease 0.4s both;
       }
 
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
+      .hero-description {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 48px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
         animation: fadeInUp 0.8s ease 0.6s both;
       }
 
-      .social-link {
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s ease 0.8s both;
+      }
+
+      .btn {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
+        gap: 8px;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 600;
         text-decoration: none;
-        border-radius: 50%;
         transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
       }
 
-      .social-link:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-3px);
-      }
-
-      /* Sections */
-      section {
-        padding: 80px 0;
+      .btn-primary {
         background: white;
+        color: var(--primary-color);
+        box-shadow: var(--shadow-lg);
       }
 
-      section:nth-child(even) {
-        background: #f8fafc;
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .btn-secondary {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      /* Section styling */
+      section {
+        padding: 120px 0;
+        position: relative;
+      }
+
+      .section-bg {
+        background: var(--bg-primary);
+        border-radius: 40px 40px 0 0;
+        margin-top: -40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-badge {
+        display: inline-block;
+        background: var(--bg-tertiary);
+        color: var(--primary-color);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        margin-bottom: 16px;
       }
 
       .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 3rem;
-        color: #2d3748;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 16px;
       }
 
-      .section-title::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: #667eea;
-        margin: 1rem auto;
-      }
-
-      /* About */
-      .about-content {
-        font-size: 1.2rem;
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-        color: #4a5568;
-        line-height: 1.8;
-      }
-
-      /* Education */
-      .education-item {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      .section-description {
+        font-size: 18px;
+        color: var(--text-secondary);
         max-width: 600px;
         margin: 0 auto;
       }
 
-      .education-item h3 {
-        color: #667eea;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .education-item .period {
-        color: #718096;
-        margin-bottom: 1rem;
-      }
-
-      .education-item ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .education-item li {
-        margin-bottom: 0.5rem;
-        padding-left: 1.5rem;
-        position: relative;
-      }
-
-      .education-item li::before {
-        content: '▸';
-        position: absolute;
-        left: 0;
-        color: #667eea;
-      }
-
-      /* Experience */
-      .experience-item {
+      /* About section */
+      .about-card {
         background: white;
-        padding: 2.5rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2rem;
+        border-radius: 24px;
+        padding: 48px;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid #e2e8f0;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
       }
 
-      .experience-header {
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 1.5rem;
-        margin-bottom: 2rem;
+      .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
       }
 
-      .experience-header h3 {
-        color: #667eea;
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
+      .about-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        text-align: center;
       }
 
-      .experience-header .position {
-        font-size: 1.2rem;
+      /* Stats section */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 32px;
+        margin-top: 64px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 32px 24px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .stat-number {
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 14px;
         font-weight: 600;
-        color: #2d3748;
-        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
-      .experience-header .period {
-        color: #718096;
+      /* Education & Experience */
+      .timeline-item {
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #e2e8f0;
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
       }
 
-      .project-section {
-        margin-bottom: 2rem;
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--gradient-primary);
       }
 
-      .project-section h4 {
-        color: #2d3748;
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .timeline-title {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .timeline-title h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .timeline-title .position {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 4px;
+      }
+
+      .timeline-title .location {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .timeline-period {
+        background: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .timeline-description {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        line-height: 1.6;
       }
 
       .achievement-list {
         list-style: none;
-        padding-left: 0;
+        padding: 0;
       }
 
       .achievement-list li {
-        margin-bottom: 0.8rem;
-        padding-left: 2rem;
-        position: relative;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 15px;
         line-height: 1.6;
+        color: var(--text-secondary);
       }
 
       .achievement-list li::before {
         content: '✓';
-        position: absolute;
-        left: 0;
-        color: #48bb78;
+        color: #10b981;
         font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
       }
 
-      /* Projects */
+      /* Projects grid */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 32px;
       }
 
       .project-card {
         background: white;
-        border-radius: 15px;
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
       }
 
       .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
       }
 
-      .project-card h3 {
-        color: #667eea;
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
+      .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+      }
+
+      .project-header {
+        margin-bottom: 24px;
+      }
+
+      .project-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
       }
 
       .project-period {
-        color: #718096;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+        font-size: 14px;
+        color: var(--text-muted);
+        font-weight: 500;
       }
 
       .project-description {
-        color: #4a5568;
-        margin-bottom: 1.5rem;
+        font-size: 16px;
+        color: var(--text-secondary);
         line-height: 1.6;
+        margin-bottom: 24px;
       }
 
       .project-features {
         list-style: none;
-        margin-bottom: 1.5rem;
+        margin-bottom: 24px;
+        padding: 0;
       }
 
       .project-features li {
-        margin-bottom: 0.5rem;
-        padding-left: 1.5rem;
-        position: relative;
-        font-size: 0.9rem;
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: var(--text-secondary);
       }
 
       .project-features li::before {
         content: '•';
-        position: absolute;
-        left: 0;
-        color: #667eea;
+        color: var(--primary-color);
         font-weight: bold;
+        flex-shrink: 0;
       }
 
       .tech-stack {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 8px;
       }
 
       .tech-tag {
-        background: #edf2f7;
-        color: #4a5568;
-        padding: 0.25rem 0.75rem;
+        background: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 6px 12px;
         border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
       }
 
-      /* Skills */
+      /* Skills section */
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        gap: 32px;
       }
 
       .skill-category {
         background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #e2e8f0;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-category::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-secondary);
+      }
+
+      .skill-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--gradient-primary);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 20px;
       }
 
       .skill-category h3 {
-        color: #667eea;
-        margin-bottom: 1.5rem;
-        font-size: 1.3rem;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 20px;
       }
 
       .skill-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 8px;
         justify-content: center;
       }
 
       .skill-tag {
-        background: #667eea;
+        background: var(--primary-color);
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
       }
 
-      /* Research Interests */
+      /* Research interests */
       .research-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
+        gap: 32px;
       }
 
-      .research-item {
+      .research-card {
         background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
       }
 
-      .research-item h3 {
-        color: #667eea;
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
+      .research-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
       }
 
-      .research-item p {
-        color: #4a5568;
-        line-height: 1.6;
+      .research-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--gradient-accent);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        color: white;
+        font-size: 24px;
       }
 
-      /* Footer */
-      footer {
-        background: #2d3748;
+      .research-card h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+      }
+
+      .research-card p {
+        font-size: 16px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* Contact section */
+      .contact-section {
+        background: var(--text-primary);
         color: white;
         text-align: center;
-        padding: 2rem 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 32px;
+        margin-top: 48px;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .contact-icon {
+        width: 64px;
+        height: 64px;
+        background: var(--glass-dark);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-icon:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-info h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .contact-info p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .contact-info a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: white;
       }
 
       /* Animations */
@@ -429,27 +773,64 @@
         }
       }
 
-      /* Responsive */
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      /* Scroll animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive design */
       @media (max-width: 768px) {
+        .container {
+          padding: 0 16px;
+        }
+
         .nav-links {
           display: none;
         }
 
-        .hero h1 {
-          font-size: 2.5rem;
+        .hero {
+          padding: 120px 0 60px;
         }
 
-        .hero .subtitle {
-          font-size: 1.2rem;
-        }
-
-        .contact-info {
+        .hero-actions {
           flex-direction: column;
-          gap: 1rem;
+          align-items: center;
         }
 
-        .section-title {
-          font-size: 2rem;
+        section {
+          padding: 80px 0;
+        }
+
+        .section-bg {
+          border-radius: 24px 24px 0 0;
+          margin-top: -24px;
+        }
+
+        .about-card,
+        .timeline-item,
+        .project-card,
+        .skill-category,
+        .research-card {
+          padding: 24px;
         }
 
         .projects-grid {
@@ -463,79 +844,142 @@
         .research-grid {
           grid-template-columns: 1fr;
         }
+
+        .timeline-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .timeline-title {
+          min-width: auto;
+          width: 100%;
+        }
       }
 
-      /* Smooth scroll */
-      html {
-        scroll-behavior: smooth;
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 18px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
       }
     </style>
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <nav class="container">
-        <div class="logo">김기진</div>
-        <ul class="nav-links">
-          <li><a href="#about">소개</a></li>
-          <li><a href="#education">학력</a></li>
-          <li><a href="#experience">경력</a></li>
-          <li><a href="#projects">프로젝트</a></li>
-          <li><a href="#skills">기술</a></li>
-          <li><a href="#research">연구관심분야</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">김기진</div>
+          <ul class="nav-links">
+            <li><a href="#about">소개</a></li>
+            <li><a href="#education">학력</a></li>
+            <li><a href="#experience">경력</a></li>
+            <li><a href="#projects">프로젝트</a></li>
+            <li><a href="#skills">기술</a></li>
+            <li><a href="#research">연구</a></li>
+            <li><a href="#contact">연락처</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>김기진 (Gijin Kim)</h1>
-        <p class="subtitle">Backend Developer & AI Engineer</p>
-
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>abjin@naver.com</span>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>현재 구직중</span>
           </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>010-7548-1106</span>
+          <h1>김기진 <span class="highlight">(Gijin Kim)</span></h1>
+          <div class="hero-subtitle">Backend Developer & AI Engineer</div>
+          <div class="hero-description">
+            복잡한 세상의 문제를 단순화하고 IT 기술로 문제를 푸는 것을 즐기는
+            개발자입니다. 대규모 트래픽 처리부터 AI 서비스 개발까지, 다양한
+            기술적 도전을 통해 실질적인 문제 해결에 집중합니다.
           </div>
-        </div>
-
-        <div class="social-links">
-          <a
-            href="https://github.com/gimgijin"
-            target="_blank"
-            class="social-link"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://velog.io/@gimgijin"
-            target="_blank"
-            class="social-link"
-          >
-            <i class="fas fa-blog"></i>
-          </a>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-rocket"></i>
+              프로젝트 보기
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i>
+              연락하기
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section-bg">
       <div class="container">
-        <h2 class="section-title">소개</h2>
-        <div class="about-content">
-          <p>
+        <div class="section-header fade-in">
+          <div class="section-badge">소개</div>
+          <h2 class="section-title">안녕하세요! 👋</h2>
+          <div class="section-description">
+            백엔드 개발과 AI 기술에 열정을 가진 개발자입니다
+          </div>
+        </div>
+
+        <div class="about-card fade-in">
+          <div class="about-text">
             복잡한 세상의 문제를 단순화하고 IT 기술로 문제를 푸는 것을 즐기는
             개발자 김기진입니다. 대규모 트래픽을 안정적으로 처리하는 백엔드
             시스템 설계부터 RAG 기반의 지능형 서비스 개발까지, 다양한 기술적
             도전을 통해 실질적인 문제 해결에 집중해왔습니다. 최근에는 더 다양한
             문제를 해결하기 위해 자연어 처리 기술에 관심을 가지고 공부하고
             있습니다.
-          </p>
+          </div>
+        </div>
+
+        <div class="stats-grid fade-in">
+          <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Major Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">40만+</div>
+            <div class="stat-label">Daily Active Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.0/4.5</div>
+            <div class="stat-label">GPA</div>
+          </div>
         </div>
       </div>
     </section>
@@ -543,45 +987,70 @@
     <!-- Education Section -->
     <section id="education">
       <div class="container">
-        <h2 class="section-title">🎓 학력</h2>
-        <div class="education-item">
-          <h3>단국대학교 (Dankook University), 용인</h3>
-          <div class="period">2020.03 ~ 재학중</div>
-          <ul>
+        <div class="section-header fade-in">
+          <div class="section-badge">학력</div>
+          <h2 class="section-title">🎓 Education</h2>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>단국대학교 (Dankook University)</h3>
+              <div class="position">
+                모바일시스템공학과 (B.S. in Mobile Systems Engineering)
+              </div>
+              <div class="location">용인, 한국</div>
+            </div>
+            <div class="timeline-period">2020.03 ~ 재학중</div>
+          </div>
+          <div class="timeline-description">
+            <strong>학점:</strong> 4.0 / 4.5
+          </div>
+          <ul class="achievement-list">
+            <li>자료구조, 알고리즘 과목 수강으로 컴퓨터 과학 기초 확립</li>
             <li>
-              전공: 모바일시스템공학과 (B.S. in Mobile Systems Engineering)
+              데이터베이스, 시스템 프로그래밍을 통한 백엔드 개발 역량 강화
             </li>
-            <li>학점: 4.0 / 4.5</li>
-            <li>
-              주요 이수 과목: 자료구조, 알고리즘, 데이터베이스, 확률 및 통계,
-              컴퓨터 구조, 시스템 프로그래밍
-            </li>
+            <li>확률 및 통계, 컴퓨터 구조 수강으로 AI/ML 이론적 기반 구축</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" class="section-bg">
       <div class="container">
-        <h2 class="section-title">💼 경력</h2>
-        <div class="experience-item">
-          <div class="experience-header">
-            <h3>Nudge Healthcare (Cashwalk), 서울</h3>
-            <div class="position">
-              Back-end Part Leader & Back-end Developer
+        <div class="section-header fade-in">
+          <div class="section-badge">경력</div>
+          <h2 class="section-title">💼 Work Experience</h2>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>Nudge Healthcare (Cashwalk)</h3>
+              <div class="position">
+                Back-end Part Leader & Back-end Developer
+              </div>
+              <div class="location">서울, 한국</div>
             </div>
-            <div class="period">2022.04 – 2024.04 (2년 1개월)</div>
-            <p>
-              스크럼 진행, 코드 리뷰, API 설계, RDB/NoSQL 최적화 등 프로젝트
-              전반의 기술적 리딩과 팀 관리를 담당했습니다.
-            </p>
+            <div class="timeline-period">2022.04 – 2024.04 (2년 1개월)</div>
+          </div>
+          <div class="timeline-description">
+            스크럼 진행, 코드 리뷰, API 설계, RDB/NoSQL 최적화 등 프로젝트
+            전반의 기술적 리딩과 팀 관리를 담당했습니다.
           </div>
 
-          <div class="project-section">
-            <h4>
-              대용량 채팅 데이터 처리 시스템 개발 (Chat SAAS Backend
-              Development)
+          <div style="margin-top: 32px">
+            <h4
+              style="
+                color: var(--primary-color);
+                margin-bottom: 16px;
+                font-size: 18px;
+                font-weight: 700;
+              "
+            >
+              대용량 채팅 데이터 처리 시스템 개발
             </h4>
             <ul class="achievement-list">
               <li>
@@ -604,17 +1073,19 @@
                 RDB/NoSQL(MySQL, Dynamo DB, Redis) 설계 및 최적화를 통해 데이터
                 처리 성능 개선
               </li>
-              <li>
-                파트장으로서 백엔드 파트의 스크럼 진행, 코드 리뷰, 일정 및 업무
-                관리 수행
-              </li>
             </ul>
           </div>
 
-          <div class="project-section">
-            <h4>
-              글로벌 서비스 백엔드 및 데이터 파이프라인 구축 (Global
-              Pedometer-based Reward Service)
+          <div style="margin-top: 32px">
+            <h4
+              style="
+                color: var(--primary-color);
+                margin-bottom: 16px;
+                font-size: 18px;
+                font-weight: 700;
+              "
+            >
+              글로벌 서비스 백엔드 및 데이터 파이프라인 구축
             </h4>
             <ul class="achievement-list">
               <li>북미/유럽 대상 글로벌 서비스의 백엔드 시스템 설계 및 개발</li>
@@ -639,17 +1110,27 @@
     <!-- Projects Section -->
     <section id="projects">
       <div class="container">
-        <h2 class="section-title">🚀 프로젝트</h2>
+        <div class="section-header fade-in">
+          <div class="section-badge">프로젝트</div>
+          <h2 class="section-title">🚀 Featured Projects</h2>
+          <div class="section-description">
+            다양한 기술적 도전을 통해 실제 문제를 해결한 프로젝트들입니다
+          </div>
+        </div>
+
         <div class="projects-grid">
-          <!-- AI Slack Bot -->
-          <div class="project-card">
-            <h3>AI 기반 Slack Q&A 봇 개발</h3>
-            <div class="project-period">2025.05 - 2025.07 (개인 프로젝트)</div>
+          <div class="project-card fade-in">
+            <div class="project-header">
+              <h3 class="project-title">AI 기반 Slack Q&A 봇 개발</h3>
+              <div class="project-period">
+                2025.05 - 2025.07 (개인 프로젝트)
+              </div>
+            </div>
             <div class="project-description">
               팀 내부 지식에 특화된 질문 응답 시스템을 구축하기 위해 RAG
               아키텍처 기반의 Slack 봇을 설계하고 개발했습니다. GitHub
               코드베이스와 Notion 문서를 대상으로 한 벡터 검색을 통해, 사용자의
-              질문에 정확하고 근거 있는 답변을 제공하는 시스템을 구축했습니다.
+              질문에 정확하고 근거 있는 답변을 제공합니다.
             </div>
             <ul class="project-features">
               <li>LangGraph를 활용한 질문 분류 및 라우팅 워크플로우 구현</li>
@@ -670,10 +1151,13 @@
             </div>
           </div>
 
-          <!-- AI Clothing Recycling -->
-          <div class="project-card">
-            <h3>AI 기반 의류 재활용 플랫폼 개발</h3>
-            <div class="project-period">2025.02 - 2025.04 (개인 프로젝트)</div>
+          <div class="project-card fade-in">
+            <div class="project-header">
+              <h3 class="project-title">AI 기반 의류 재활용 플랫폼</h3>
+              <div class="project-period">
+                2025.02 - 2025.04 (개인 프로젝트)
+              </div>
+            </div>
             <div class="project-description">
               YOLO 모델을 활용하여 의류 재활용 선별 과정을 자동화하는 서비스를
               개발했습니다. 15개 카테고리 분류 및 결함 검출 기능으로 재활용
@@ -697,10 +1181,13 @@
             </div>
           </div>
 
-          <!-- Gym App -->
-          <div class="project-card">
-            <h3>헬스장 출석 동기부여 앱 개발</h3>
-            <div class="project-period">2025.02 - 2025.04 (개인 프로젝트)</div>
+          <div class="project-card fade-in">
+            <div class="project-header">
+              <h3 class="project-title">헬스장 출석 동기부여 앱</h3>
+              <div class="project-period">
+                2025.02 - 2025.04 (개인 프로젝트)
+              </div>
+            </div>
             <div class="project-description">
               헬스장 출석 및 소셜 기능을 갖춘 피트니스 웹/앱을 개발했습니다.
               OpenRouter AI를 통한 프롬프트 엔지니어링을 통해 헬스장 이미지 검증
@@ -711,6 +1198,7 @@
               <li>OpenRouter AI 모델을 활용한 헬스장 이미지 검증 기능</li>
               <li>Redis를 활용한 실시간 랭킹 및 레벨 시스템</li>
               <li>사용자 순위 및 점수 관리 시스템</li>
+              <li>소셜 기능을 통한 사용자 동기부여 시스템</li>
             </ul>
             <div class="tech-stack">
               <span class="tech-tag">NestJS</span>
@@ -723,10 +1211,15 @@
             </div>
           </div>
 
-          <!-- Calorie Analysis -->
-          <div class="project-card">
-            <h3>음식 이미지 기반 칼로리 분석 AI 서버</h3>
-            <div class="project-period">2024.11 - 2025.01 (개인 프로젝트)</div>
+          <div class="project-card fade-in">
+            <div class="project-header">
+              <h3 class="project-title">
+                음식 이미지 기반 칼로리 분석 AI 서버
+              </h3>
+              <div class="project-period">
+                2024.11 - 2025.01 (개인 프로젝트)
+              </div>
+            </div>
             <div class="project-description">
               음식 사진으로 칼로리와 영양 정보를 분석해주는 AI API 서버를
               개발했습니다. YOLOv11 모델을 직접 파인튜닝하여 음식 객체를 탐지 및
@@ -755,11 +1248,21 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="section-bg">
       <div class="container">
-        <h2 class="section-title">🛠️ 보유 기술</h2>
+        <div class="section-header fade-in">
+          <div class="section-badge">기술 스택</div>
+          <h2 class="section-title">🛠️ Skills & Technologies</h2>
+          <div class="section-description">
+            다양한 프로젝트를 통해 습득한 기술들입니다
+          </div>
+        </div>
+
         <div class="skills-grid">
-          <div class="skill-category">
+          <div class="skill-category fade-in">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
             <h3>Programming</h3>
             <div class="skill-tags">
               <span class="skill-tag">TypeScript</span>
@@ -768,7 +1271,11 @@
               <span class="skill-tag">Node.js</span>
             </div>
           </div>
-          <div class="skill-category">
+
+          <div class="skill-category fade-in">
+            <div class="skill-icon">
+              <i class="fas fa-brain"></i>
+            </div>
             <h3>AI / ML</h3>
             <div class="skill-tags">
               <span class="skill-tag">LangChain</span>
@@ -780,7 +1287,11 @@
               <span class="skill-tag">YOLO</span>
             </div>
           </div>
-          <div class="skill-category">
+
+          <div class="skill-category fade-in">
+            <div class="skill-icon">
+              <i class="fas fa-server"></i>
+            </div>
             <h3>Backend & DevOps</h3>
             <div class="skill-tags">
               <span class="skill-tag">NestJS</span>
@@ -800,9 +1311,19 @@
     <!-- Research Interests Section -->
     <section id="research">
       <div class="container">
-        <h2 class="section-title">🔬 연구 관심 분야</h2>
+        <div class="section-header fade-in">
+          <div class="section-badge">연구 관심 분야</div>
+          <h2 class="section-title">🔬 Research Interests</h2>
+          <div class="section-description">
+            지속적인 학습과 연구를 통해 발전하고 있는 분야들입니다
+          </div>
+        </div>
+
         <div class="research-grid">
-          <div class="research-item">
+          <div class="research-card fade-in">
+            <div class="research-icon">
+              <i class="fas fa-search"></i>
+            </div>
             <h3>Retrieval-Augmented Generation (RAG)</h3>
             <p>
               RAG 봇 개발 경험을 통해, 외부 정보 소스를 활용하여 LLM의 신뢰성을
@@ -810,7 +1331,11 @@
               데이터에 대한 효율적인 검색 및 생성 전략을 연구하고 싶음.
             </p>
           </div>
-          <div class="research-item">
+
+          <div class="research-card fade-in">
+            <div class="research-icon">
+              <i class="fas fa-comments"></i>
+            </div>
             <h3>Dialogue Systems & LLM-based Agents</h3>
             <p>
               대화형 AI 시스템의 상호작용 품질 향상에 기여하고 싶음. LangGraph를
@@ -822,33 +1347,142 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
       <div class="container">
-        <p>&copy; 2024 김기진 (Gijin Kim). All rights reserved.</p>
+        <div class="section-header fade-in">
+          <div
+            class="section-badge"
+            style="background: rgba(255, 255, 255, 0.2); color: white"
+          >
+            연락처
+          </div>
+          <h2 class="section-title" style="color: white">📬 Get In Touch</h2>
+          <div
+            class="section-description"
+            style="color: rgba(255, 255, 255, 0.8)"
+          >
+            새로운 기회와 협업에 항상 열려있습니다
+          </div>
+        </div>
+
+        <div class="contact-grid fade-in">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info">
+              <h4>이메일</h4>
+              <p><a href="mailto:abjin@naver.com">abjin@naver.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-info">
+              <h4>전화번호</h4>
+              <p>010-7548-1106</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="contact-info">
+              <h4>GitHub</h4>
+              <p>
+                <a href="https://github.com/gimgijin" target="_blank"
+                  >@gimgijin</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-blog"></i>
+            </div>
+            <div class="contact-info">
+              <h4>Velog</h4>
+              <p>
+                <a href="https://velog.io/@gimgijin" target="_blank"
+                  >@gimgijin</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+          "
+        >
+          <p style="color: rgba(255, 255, 255, 0.6)">
+            &copy; 2024 김기진 (Gijin Kim). All rights reserved.
+          </p>
+        </div>
       </div>
-    </footer>
+    </section>
 
     <script>
-      // Smooth scroll for navigation links
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth',
-          });
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
         });
       });
 
-      // Add scroll effect to navigation
-      window.addEventListener('scroll', function () {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-          header.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-          header.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
+      // Fade in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll('.fade-in').forEach((el) => {
+        observer.observe(el);
       });
+
+      // Add stagger effect to grid items
+      document
+        .querySelectorAll(
+          '.projects-grid .project-card, .skills-grid .skill-category, .research-grid .research-card'
+        )
+        .forEach((el, index) => {
+          el.style.animationDelay = `${index * 0.1}s`;
+        });
     </script>
   </body>
 </html>
