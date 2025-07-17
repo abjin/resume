@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김기진 (Gijin Kim) - Backend Developer & AI Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #667eea;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #667eea;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease 0.2s both;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease 0.4s both;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        animation: fadeInUp 0.8s ease 0.6s both;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      /* Sections */
+      section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      section:nth-child(even) {
+        background: #f8fafc;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        color: #2d3748;
+      }
+
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: #667eea;
+        margin: 1rem auto;
+      }
+
+      /* About */
+      .about-content {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #4a5568;
+        line-height: 1.8;
+      }
+
+      /* Education */
+      .education-item {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .education-item h3 {
+        color: #667eea;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .education-item .period {
+        color: #718096;
+        margin-bottom: 1rem;
+      }
+
+      .education-item ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .education-item li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .education-item li::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: #667eea;
+      }
+
+      /* Experience */
+      .experience-item {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .experience-header {
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .experience-header h3 {
+        color: #667eea;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-header .position {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-header .period {
+        color: #718096;
+      }
+
+      .project-section {
+        margin-bottom: 2rem;
+      }
+
+      .project-section h4 {
+        color: #2d3748;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .achievement-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .achievement-list li {
+        margin-bottom: 0.8rem;
+        padding-left: 2rem;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .achievement-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #48bb78;
+        font-weight: bold;
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-card h3 {
+        color: #667eea;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-period {
+        color: #718096;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-description {
+        color: #4a5568;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-features li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+        font-size: 0.9rem;
+      }
+
+      .project-features li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #667eea;
+        font-weight: bold;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tech-tag {
+        background: #edf2f7;
+        color: #4a5568;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-category {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .skill-category h3 {
+        color: #667eea;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .skill-tag {
+        background: #667eea;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      /* Research Interests */
+      .research-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+      }
+
+      .research-item {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .research-item h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .research-item p {
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background: #2d3748;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="container">
+        <div class="logo">김기진</div>
+        <ul class="nav-links">
+          <li><a href="#about">소개</a></li>
+          <li><a href="#education">학력</a></li>
+          <li><a href="#experience">경력</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#skills">기술</a></li>
+          <li><a href="#research">연구관심분야</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>김기진 (Gijin Kim)</h1>
+        <p class="subtitle">Backend Developer & AI Engineer</p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>abjin@naver.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>010-7548-1106</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a
+            href="https://github.com/gimgijin"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://velog.io/@gimgijin"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fas fa-blog"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">소개</h2>
+        <div class="about-content">
+          <p>
+            복잡한 세상의 문제를 단순화하고 IT 기술로 문제를 푸는 것을 즐기는
+            개발자 김기진입니다. 대규모 트래픽을 안정적으로 처리하는 백엔드
+            시스템 설계부터 RAG 기반의 지능형 서비스 개발까지, 다양한 기술적
+            도전을 통해 실질적인 문제 해결에 집중해왔습니다. 최근에는 더 다양한
+            문제를 해결하기 위해 자연어 처리 기술에 관심을 가지고 공부하고
+            있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">🎓 학력</h2>
+        <div class="education-item">
+          <h3>단국대학교 (Dankook University), 용인</h3>
+          <div class="period">2020.03 ~ 재학중</div>
+          <ul>
+            <li>
+              전공: 모바일시스템공학과 (B.S. in Mobile Systems Engineering)
+            </li>
+            <li>학점: 4.0 / 4.5</li>
+            <li>
+              주요 이수 과목: 자료구조, 알고리즘, 데이터베이스, 확률 및 통계,
+              컴퓨터 구조, 시스템 프로그래밍
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">💼 경력</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3>Nudge Healthcare (Cashwalk), 서울</h3>
+            <div class="position">
+              Back-end Part Leader & Back-end Developer
+            </div>
+            <div class="period">2022.04 – 2024.04 (2년 1개월)</div>
+            <p>
+              스크럼 진행, 코드 리뷰, API 설계, RDB/NoSQL 최적화 등 프로젝트
+              전반의 기술적 리딩과 팀 관리를 담당했습니다.
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h4>
+              대용량 채팅 데이터 처리 시스템 개발 (Chat SAAS Backend
+              Development)
+            </h4>
+            <ul class="achievement-list">
+              <li>
+                일간 활성 사용자(DAU) 40만 규모의 대용량 데이터 스트림을
+                처리하는 서버 아키텍처 설계 및 개발
+              </li>
+              <li>
+                읽음 처리, 1대1 채팅, 단체 채팅, 채널 톡(500만명 이상 동시 발송)
+                등 다양한 타입의 메시징 기능 개발
+              </li>
+              <li>
+                Node.js, Nest.JS 기반 API 설계 및 Socket.io를 활용한 실시간 통신
+                구현
+              </li>
+              <li>
+                다양한 서비스에 적용 가능한 멀티테넌트 구조를 구현하여 시스템
+                확장성 확보
+              </li>
+              <li>
+                RDB/NoSQL(MySQL, Dynamo DB, Redis) 설계 및 최적화를 통해 데이터
+                처리 성능 개선
+              </li>
+              <li>
+                파트장으로서 백엔드 파트의 스크럼 진행, 코드 리뷰, 일정 및 업무
+                관리 수행
+              </li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>
+              글로벌 서비스 백엔드 및 데이터 파이프라인 구축 (Global
+              Pedometer-based Reward Service)
+            </h4>
+            <ul class="achievement-list">
+              <li>북미/유럽 대상 글로벌 서비스의 백엔드 시스템 설계 및 개발</li>
+              <li>
+                글로벌 환경에서 네트워크 지연 및 데이터 일관성을 고려한 안정적인
+                아키텍처 구축
+              </li>
+              <li>
+                AWS(EC2, RDS, S3, SQS, Lambda 등) 클라우드 환경에서 기능
+                유지보수 및 운영
+              </li>
+              <li>
+                파트장으로서 백엔드 파트의 스크럼 진행, 코드 리뷰, 일정 및 업무
+                관리 수행
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">🚀 프로젝트</h2>
+        <div class="projects-grid">
+          <!-- AI Slack Bot -->
+          <div class="project-card">
+            <h3>AI 기반 Slack Q&A 봇 개발</h3>
+            <div class="project-period">2025.05 - 2025.07 (개인 프로젝트)</div>
+            <div class="project-description">
+              팀 내부 지식에 특화된 질문 응답 시스템을 구축하기 위해 RAG
+              아키텍처 기반의 Slack 봇을 설계하고 개발했습니다. GitHub
+              코드베이스와 Notion 문서를 대상으로 한 벡터 검색을 통해, 사용자의
+              질문에 정확하고 근거 있는 답변을 제공하는 시스템을 구축했습니다.
+            </div>
+            <ul class="project-features">
+              <li>LangGraph를 활용한 질문 분류 및 라우팅 워크플로우 구현</li>
+              <li>
+                OpenAI Embedding Model과 Pinecone을 이용한 벡터 검색 시스템
+              </li>
+              <li>1시간마다 자동 임베딩 업데이트하는 Cron 작업 구현</li>
+              <li>멀티테넌시를 지원하는 DB 스키마와 로직 설계</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">LangGraph</span>
+              <span class="tech-tag">OpenAI API</span>
+              <span class="tech-tag">Pinecone</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+          </div>
+
+          <!-- AI Clothing Recycling -->
+          <div class="project-card">
+            <h3>AI 기반 의류 재활용 플랫폼 개발</h3>
+            <div class="project-period">2025.02 - 2025.04 (개인 프로젝트)</div>
+            <div class="project-description">
+              YOLO 모델을 활용하여 의류 재활용 선별 과정을 자동화하는 서비스를
+              개발했습니다. 15개 카테고리 분류 및 결함 검출 기능으로 재활용
+              효율을 높였으며, TorchScript 최적화와 Docker/AWS 기반 배포
+              파이프라인을 구축했습니다.
+            </div>
+            <ul class="project-features">
+              <li>FastAPI를 사용한 의류 이미지 분류 및 결함 검출 API 개발</li>
+              <li>PyTorch 모델을 TorchScript로 변환하여 추론 성능 최적화</li>
+              <li>Docker Hub과 AWS Elastic Beanstalk 자동 배포 파이프라인</li>
+              <li>Docker Compose와 Nginx를 활용한 서비스 운영 환경 구축</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">TorchScript</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">Nginx</span>
+            </div>
+          </div>
+
+          <!-- Gym App -->
+          <div class="project-card">
+            <h3>헬스장 출석 동기부여 앱 개발</h3>
+            <div class="project-period">2025.02 - 2025.04 (개인 프로젝트)</div>
+            <div class="project-description">
+              헬스장 출석 및 소셜 기능을 갖춘 피트니스 웹/앱을 개발했습니다.
+              OpenRouter AI를 통한 프롬프트 엔지니어링을 통해 헬스장 이미지 검증
+              기능의 정확도를 높였고, Redis를 활용해 실시간 랭킹 시스템을
+              구현했습니다.
+            </div>
+            <ul class="project-features">
+              <li>OpenRouter AI 모델을 활용한 헬스장 이미지 검증 기능</li>
+              <li>Redis를 활용한 실시간 랭킹 및 레벨 시스템</li>
+              <li>사용자 순위 및 점수 관리 시스템</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">AWS S3</span>
+              <span class="tech-tag">OpenRouter</span>
+              <span class="tech-tag">React</span>
+            </div>
+          </div>
+
+          <!-- Calorie Analysis -->
+          <div class="project-card">
+            <h3>음식 이미지 기반 칼로리 분석 AI 서버</h3>
+            <div class="project-period">2024.11 - 2025.01 (개인 프로젝트)</div>
+            <div class="project-description">
+              음식 사진으로 칼로리와 영양 정보를 분석해주는 AI API 서버를
+              개발했습니다. YOLOv11 모델을 직접 파인튜닝하여 음식 객체를 탐지 및
+              분류하고, 사용자에게 정확한 영양 정보를 제공하는 시스템을
+              구축했습니다.
+            </div>
+            <ul class="project-features">
+              <li>
+                90종 음식 클래스 데이터셋으로 YOLOv11 모델 파인튜닝 (mAP 0.85)
+              </li>
+              <li>FastAPI 서버에 통합한 실시간 이미지 처리 파이프라인</li>
+              <li>AWS 클라우드 기반 안정적이고 확장 가능한 서버 인프라</li>
+              <li>이미지 업로드부터 영양 정보 반환까지의 RESTful API</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">YOLOv8</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">🛠️ 보유 기술</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>AI / ML</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">LangGraph</span>
+              <span class="skill-tag">OpenAI API</span>
+              <span class="skill-tag">Pinecone</span>
+              <span class="skill-tag">Hugging Face</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">YOLO</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Backend & DevOps</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Next.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Interests Section -->
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">🔬 연구 관심 분야</h2>
+        <div class="research-grid">
+          <div class="research-item">
+            <h3>Retrieval-Augmented Generation (RAG)</h3>
+            <p>
+              RAG 봇 개발 경험을 통해, 외부 정보 소스를 활용하여 LLM의 신뢰성을
+              높이고 환각을 줄이는 기술에 깊은 관심을 갖게 됨. 특히, 도메인 특화
+              데이터에 대한 효율적인 검색 및 생성 전략을 연구하고 싶음.
+            </p>
+          </div>
+          <div class="research-item">
+            <h3>Dialogue Systems & LLM-based Agents</h3>
+            <p>
+              대화형 AI 시스템의 상호작용 품질 향상에 기여하고 싶음. LangGraph를
+              이용한 에이전트 개발 경험을 바탕으로, 복잡한 태스크를 수행할 수
+              있는 자율적인 LLM 에이전트를 연구하는 데 관심이 많음.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 김기진 (Gijin Kim). All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+          });
+        });
+      });
+
+      // Add scroll effect to navigation
+      window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+    </script>
+  </body>
+</html>
