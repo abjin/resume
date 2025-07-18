@@ -166,6 +166,33 @@
         display: none !important;
       }
 
+      .mobile-language-switch {
+        display: none;
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 6px 12px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .mobile-language-switch:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      /* 데스크톱에서는 모바일 언어 전환 버튼 숨김 */
+      @media (min-width: 769px) {
+        .mobile-language-switch {
+          display: none !important;
+        }
+      }
+
       /* Hero Section */
       .hero {
         min-height: 100vh;
@@ -874,6 +901,14 @@
           display: none;
         }
 
+        .mobile-language-switch {
+          display: block !important;
+        }
+
+        .desktop-language-switch {
+          display: none !important;
+        }
+
         .hero {
           padding: 120px 0 60px;
         }
@@ -967,6 +1002,7 @@
       <div class="container">
         <div class="nav-content">
           <div class="logo">김기진</div>
+          <a href="index_en.html" class="mobile-language-switch">🌐 English</a>
           <ul class="nav-links">
             <li><a href="#about">소개</a></li>
             <li><a href="#education">학력</a></li>
@@ -976,7 +1012,11 @@
             <li><a href="#research">연구</a></li>
             <li><a href="#contact">연락처</a></li>
             <li>
-              <a href="index_en.html" class="language-switch">🌐 English</a>
+              <a
+                href="index_en.html"
+                class="language-switch desktop-language-switch"
+                >🌐 English</a
+              >
             </li>
           </ul>
         </div>
