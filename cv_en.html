@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gijin Kim CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #34495e;
+        --text-color: #333;
+        --light-gray: #ecf0f1;
+        --accent-color: #3498db;
+      }
+
+      body {
+        font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2.5rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 2.8rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+
+      .header .contact-info {
+        margin-top: 1rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+      }
+
+      .header .contact-info a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .header .contact-info a:hover {
+        color: var(--accent-color);
+      }
+
+      .main-content {
+        padding: 2.5rem;
+      }
+
+      .section {
+        margin-bottom: 2.5rem;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-color);
+      }
+
+      .about-text,
+      .research-item p {
+        font-size: 1rem;
+        color: #555;
+        text-align: justify;
+      }
+
+      .item {
+        margin-bottom: 2rem;
+      }
+
+      .item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .item-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin: 0;
+      }
+
+      .item-subtitle {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #777;
+        margin: 0.2rem 0 0 0;
+      }
+
+      .item-date {
+        font-size: 0.9rem;
+        color: #888;
+        font-weight: 500;
+        white-space: nowrap;
+        margin-left: 1rem;
+      }
+
+      .item-content ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0.8rem;
+      }
+
+      .item-content ul li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .item-content ul li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .item-description {
+        margin-top: 0.8rem;
+        color: #555;
+      }
+
+      .skills-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .skills-list {
+        list-style: none;
+        padding: 0;
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .skills-list li {
+        margin-bottom: 1rem;
+      }
+
+      .skills-list strong {
+        display: block;
+        color: var(--secondary-color);
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+
+      .research-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .research-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .tech-stack {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
+      .tech-stack strong {
+        color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Gijin Kim</h1>
+        <div class="contact-info">
+          <span><a href="mailto:abjin69@gmail.com">abjin69@gmail.com</a></span>
+          <!-- <span>010-0000-0000</span> -->
+          <span
+            ><a href="https://github.com/abjin" target="_blank"
+              >github.com/abjin</a
+            ></span
+          >
+          <span
+            ><a href="https://velog.io/@abjin" target="_blank"
+              >velog.io/@abjin</a
+            ></span
+          >
+        </div>
+      </header>
+
+      <div class="main-content">
+        <div class="section">
+          <h2 class="section-title">About</h2>
+          <p class="about-text">
+            I'm Gijin Kim, a developer who enjoys simplifying complex world
+            problems and solving them with IT technology. From designing backend
+            systems that stably handle large-scale traffic to developing
+            RAG-based intelligent services, I have focused on practical
+            problem-solving through various technical challenges. Recently, I've
+            been studying natural language processing technology to solve more
+            diverse problems.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">Dankook University</h3>
+                <p class="item-subtitle">
+                  B.S. in Mobile Systems Engineering, Current Student
+                </p>
+              </div>
+              <span class="item-date">Mar 2020 – Present</span>
+            </div>
+            <div class="item-content">
+              <ul>
+                <li>GPA: 4.0 / 4.5</li>
+                <li>
+                  Relevant Coursework: Data Structures, Algorithms, Database,
+                  Probability and Statistics, Computer Architecture, System
+                  Programming
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Work Experience</h2>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">Nudge Healthcare (Cashwalk)</h3>
+                <p class="item-subtitle">Backend Part Leader & Developer</p>
+              </div>
+              <span class="item-date">Apr 2022 – Apr 2024</span>
+            </div>
+            <div class="item-content">
+              <p>
+                Responsible for technical leadership and team management
+                including scrum facilitation, code reviews, API design, and
+                RDB/NoSQL optimization across projects.
+              </p>
+
+              <h4 class="item-subtitle" style="margin-top: 1rem">
+                Large-Scale Chat Data Processing System Development
+              </h4>
+              <ul>
+                <li>
+                  Designed and developed server architecture to handle
+                  large-scale data streams for 400K daily active users (DAU)
+                </li>
+                <li>
+                  Developed various messaging features including read receipts,
+                  1-on-1/group chat, and channel talk (5M+ users)
+                </li>
+                <li>
+                  Implemented API design based on Node.js and Nest.JS, and
+                  real-time communication using Socket.io
+                </li>
+                <li>
+                  Implemented multi-tenant architecture applicable to various
+                  services to ensure system scalability
+                </li>
+                <li>
+                  Improved performance through RDB/NoSQL (MySQL, DynamoDB,
+                  Redis) design and optimization
+                </li>
+                <li>
+                  As part leader, conducted scrum sessions, code reviews, and
+                  schedule/task management for the backend team
+                </li>
+              </ul>
+
+              <h4 class="item-subtitle" style="margin-top: 1rem">
+                Global Service Backend and Data Pipeline Development
+              </h4>
+              <ul>
+                <li>
+                  Designed and developed backend systems for global services
+                  targeting North America and Europe
+                </li>
+                <li>
+                  Built stable architecture considering network latency and data
+                  consistency in global environments
+                </li>
+                <li>
+                  Maintained and operated features in AWS cloud environment
+                  (EC2, RDS, S3, SQS, Lambda, etc.)
+                </li>
+                <li>
+                  As part leader, conducted scrum sessions, code reviews, and
+                  schedule/task management for the backend team
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Projects</h2>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">AI-Powered Slack RAG Bot</h3>
+                <p class="item-subtitle">Personal Project</p>
+              </div>
+              <span class="item-date">May 2025 – Jul 2025</span>
+            </div>
+            <div class="item-content">
+              <p class="item-description">
+                Developed a RAG architecture-based Slack bot to provide accurate
+                and evidence-based answers to internal team knowledge (GitHub,
+                Notion).
+              </p>
+              <ul>
+                <li>
+                  Question Classification and Routing: Implemented a workflow
+                  using LangGraph to analyze user question intent and
+                  dynamically route to appropriate services for each purpose
+                </li>
+                <li>
+                  Vector Embedding & Search: Used OpenAI Embedding Model to
+                  convert GitHub and Notion text data into vectors, stored in
+                  Pinecone vector DB for similarity search
+                </li>
+                <li>
+                  Automatic Embedding Updates: Implemented cron jobs using
+                  NestJS Schedule module to automatically detect latest changes
+                  in GitHub repositories every hour and update Pinecone DB
+                  embeddings
+                </li>
+                <li>
+                  Multi-Tenant Architecture: Designed DB schema and logic
+                  supporting multi-tenancy for multiple Slack workspaces to use
+                  independent information
+                </li>
+              </ul>
+              <p class="tech-stack">
+                <strong>Tech Stack:</strong> NestJS, TypeScript, LangChain,
+                LangGraph, OpenAI API, Pinecone, Prisma, MySQL, Slack API,
+                GitHub API, Notion API
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">
+                  AI-Based Clothing Recycling Platform Server
+                </h3>
+                <p class="item-subtitle">Personal Project</p>
+              </div>
+              <span class="item-date">Feb 2025 – Apr 2025</span>
+            </div>
+            <div class="item-content">
+              <p class="item-description">
+                Developed a service that automates the clothing recycling
+                sorting process using YOLO models. Improved recycling efficiency
+                with 15-category classification and defect detection features,
+                and implemented fast and scalable services through TorchScript
+                optimization and Docker/AWS-based deployment pipeline.
+              </p>
+              <ul>
+                <li>
+                  AI Model Serving API Development: Developed API endpoints
+                  using FastAPI to receive clothing image URLs and return
+                  classification and defect detection results
+                </li>
+                <li>
+                  Model Optimization and Serving: Optimized inference
+                  performance by converting PyTorch models to TorchScript and
+                  built serving pipeline for real-time image processing
+                </li>
+                <li>
+                  Cloud-Based Deployment Automation: Designed CI/CD pipeline to
+                  build Docker images, push to Docker Hub, and automatically
+                  deploy to AWS Elastic Beanstalk
+                </li>
+                <li>
+                  Infrastructure Development and Operations: Built reverse proxy
+                  configuration and stable service operation environment in
+                  local and production environments using Docker Compose and
+                  Nginx
+                </li>
+              </ul>
+              <p class="tech-stack">
+                <strong>Tech Stack:</strong> Python, FastAPI, PyTorch,
+                TorchScript, OpenCV, Docker, AWS Elastic Beanstalk, Nginx,
+                Next.js
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">Gym Attendance Motivation App</h3>
+                <p class="item-subtitle">Personal Project</p>
+              </div>
+              <span class="item-date">Feb 2025 – Apr 2025</span>
+            </div>
+            <div class="item-content">
+              <p class="item-description">
+                Developed a fitness web/app with gym attendance and social
+                features. Improved the accuracy of gym image verification
+                through prompt engineering using OpenRouter AI and implemented a
+                real-time ranking system using Redis.
+              </p>
+              <ul>
+                <li>
+                  AI Image Verification: Implemented prompt engineering with
+                  OpenRouter's AI model to determine whether user-uploaded
+                  images are actual gyms
+                </li>
+                <li>
+                  Ranking and Level System: Implemented real-time ranking using
+                  Redis and managed user rankings and scores
+                </li>
+              </ul>
+              <p class="tech-stack">
+                <strong>Tech Stack:</strong> NestJS, TypeScript, Node.js, MySQL,
+                Prisma, Redis, AWS (S3), OpenRouter, Docker, React
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">
+                  Calorie Analysis AI Server from Food Images
+                </h3>
+                <p class="item-subtitle">Personal Project</p>
+              </div>
+              <span class="item-date">Nov 2024 – Jan 2025</span>
+            </div>
+            <div class="item-content">
+              <p class="item-description">
+                Developed an AI API server that analyzes calories and
+                nutritional information from food photos. Fine-tuned YOLOv11
+                model to detect and classify food objects, building a system
+                that provides accurate nutritional information to users.
+              </p>
+              <ul>
+                <li>
+                  YOLOv11 Model Fine-tuning: Fine-tuned model with 90 food class
+                  dataset to improve food detection accuracy to mAP 0.85
+                </li>
+                <li>
+                  AI Model Serving Optimization: Built efficient AI serving
+                  pipeline for real-time image processing by integrating
+                  fine-tuned YOLOv11 model into FastAPI server
+                </li>
+                <li>
+                  Food Detection and Classification: Accurately detected and
+                  classified various foods in images through model trained on 90
+                  food classes
+                </li>
+                <li>
+                  Cloud-Based Architecture: Designed stable and scalable server
+                  infrastructure using AWS (EC2, S3, RDS) and automated
+                  deployment with Docker
+                </li>
+                <li>
+                  API Design: Designed RESTful API handling the process from
+                  image upload to nutritional information analysis results
+                </li>
+              </ul>
+              <p class="tech-stack">
+                <strong>Tech Stack:</strong> Python, FastAPI, PyTorch, YOLOv11,
+                Docker, AWS (EC2, S3, RDS)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-content">
+            <ul class="skills-list">
+              <li>
+                <strong>Programming:</strong>
+                <span>TypeScript, Python, JavaScript, Node.js</span>
+              </li>
+            </ul>
+            <ul class="skills-list">
+              <li>
+                <strong>AI / ML:</strong>
+                <span
+                  >LangChain, LangGraph, OpenAI API, Pinecone, Hugging Face,
+                  PyTorch, YOLO</span
+                >
+              </li>
+            </ul>
+            <ul class="skills-list">
+              <li>
+                <strong>Backend & DevOps:</strong>
+                <span
+                  >NestJS, FastAPI, MySQL, PostgreSQL, Redis, AWS (EC2, S3, RDS,
+                  DynamoDB), Docker, Next.js</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Research Interests</h2>
+          <div class="research-item">
+            <strong>Retrieval-Augmented Generation (RAG)</strong>
+            <p>
+              Through my experience developing RAG bots, I've gained deep
+              interest in technologies that enhance LLM reliability and reduce
+              hallucinations by leveraging external information sources. I'm
+              particularly interested in researching efficient search and
+              generation strategies for domain-specific data.
+            </p>
+          </div>
+          <div class="research-item">
+            <strong>Dialogue Systems & LLM-based Agents</strong>
+            <p>
+              I want to contribute to improving the interaction quality of
+              conversational AI systems. Based on my experience developing
+              agents using LangGraph, I'm very interested in researching
+              autonomous LLM agents capable of performing complex tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
