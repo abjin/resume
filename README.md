@@ -2,7 +2,7 @@
 
 # 김기진 (Gijin Kim)
 
-**연락처**: abjin69@gmail.com | 010-7548-1106 | [GitHub](https://github.com/gimgijin) | [Velog](https://velog.io/@gimgijin)
+**연락처**: abjin69@gmail.com | 010-7548-1106 | [GitHub](https://github.com/abjin) | [Velog](https://velog.io/@abjin)
 
 ## 소개
 
