@@ -2,7 +2,7 @@
 
 # 김기진 (Gijin Kim)
 
-**연락처**: abjin@naver.com | 010-7548-1106 | [GitHub](https://github.com/gimgijin) | [Velog](https://velog.io/@gimgijin)
+**연락처**: abjin69@gmail.com | 010-7548-1106 | [GitHub](https://github.com/gimgijin) | [Velog](https://velog.io/@gimgijin)
 
 ## 소개
 
@@ -13,7 +13,7 @@
 **단국대학교 (Dankook University)**, 용인 (2020.03 ~ 재학중)
 - 전공: 모바일시스템공학과 (B.S. in Mobile Systems Engineering)
 - 학점: 4.0 / 4.5
-- 주요 이수 과목: 자료구조, 알고리즘, 데이터베이스, 확률 및 통계, 컴퓨터 구조, 시스템 프로그래밍
+- 주요 이수 과목: 자료구조, 데이터베이스, 확률 및 통계, 선형대수, 컴퓨터 구조, 시스템 프로그래밍, 운영체제
 
 ## 💼 경력 (Work Experience)
 
