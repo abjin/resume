@@ -101,8 +101,8 @@ Responsible for technical leadership and team management including scrum facilit
 
 ## 🔬 Research Interests
 
-### Retrieval-Augmented Generation (RAG)
-Through my experience developing RAG bots, I've gained deep interest in technologies that enhance LLM reliability and reduce hallucinations by leveraging external information sources. I'm particularly interested in researching efficient search and generation strategies for domain-specific data.
+### 1. Retrieval-Augmented Generation (RAG) & Domain-Specific LLM
+Fascinated by research that leverages external information sources to enhance LLM reliability and reduce hallucinations, based on hands-on experience building RAG-based bots. Currently exploring efficient search, indexing, and generation strategies for domain-specific data.
 
-### Dialogue Systems & LLM-based Agents
-I want to contribute to improving the interaction quality of conversational AI systems. Based on my experience developing agents using LangGraph, I'm very interested in researching autonomous LLM agents capable of performing complex tasks. 
+### 2. AI Agent
+Building on LangGraph-based agent development, passionate about improving interaction quality in conversational AI and advancing autonomous LLM agents capable of handling complex user needs end-to-end.

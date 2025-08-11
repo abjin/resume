@@ -101,8 +101,8 @@
 
 ## 🔬 연구 관심 분야 (Research Interests)
 
-### Retrieval-Augmented Generation (RAG)
-RAG 봇 개발 경험을 통해, 외부 정보 소스를 활용하여 LLM의 신뢰성을 높이고 환각을 줄이는 기술에 깊은 관심을 갖게 됨. 특히, 도메인 특화 데이터에 대한 효율적인 검색 및 생성 전략을 연구하고 싶음.
+### 1. Retrieval-Augmented Generation (RAG) & Domain-Specific LLM
+RAG 기반 봇 구현 경험을 바탕으로, 외부 정보 소스를 활용해 LLM의 신뢰도를 높이고 환각 현상을 줄이는 연구에 매료됨. 특히 도메인 특화 데이터에 대한 효율적인 검색, 인덱싱, 생성 전략을 탐구 중.
 
-### Dialogue Systems & LLM-based Agents
-대화형 AI 시스템의 상호작용 품질 향상에 기여하고 싶음. LangGraph를 이용한 에이전트 개발 경험을 바탕으로, 복잡한 태스크를 수행할 수 있는 자율적인 LLM 에이전트를 연구하는 데 관심이 많음.
+### 2. AI Agent
+LangGraph 기반 에이전트 개발 경험을 살려, 대화형 AI의 상호작용 품질을 개선하고 사용자의 복잡한 요구를 자율적으로 처리할 수 있는 LLM 에이전트 연구에 열정.
