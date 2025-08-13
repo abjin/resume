@@ -12,7 +12,7 @@ I’m Gijin Kim, a developer who finds fulfillment and happiness in solving comp
 
 **Dankook University**, Yongin (Mar 2020 ~ Current)
 - Major: B.S. in Mobile Systems Engineering
-- GPA: 4.0 / 4.5
+- GPA: 4.07 / 4.5 | Credits Taken: 103/140 (Expected graduation: Sep 2026)
 - Relevant Coursework: Data Structures, Database, Probability and Statistics, Linear Algebra, Computer Architecture, System Programming, Operating Systems
 
 ## 💼 Work Experience
